@@ -6,9 +6,9 @@
 #include "GameFramework/GameModeBase.h"
 #include "RollABallGameModeBase.generated.h"
 
-/**
- * 
- */
+
+class URollABallWidget;
+
 UCLASS()
 class ROLLABALL_API ARollABallGameModeBase : public AGameModeBase
 {
@@ -21,7 +21,11 @@ protected:
 
 
 	// TODO - Implement Widget Variables
+	UPROPERTY(EditAnywhere, Category="Widgets")
+	TSubclassOf<class UUserWidget> GameWidgetClass;
 
+	UPROPERTY()
+	URollABallWidget* GameWidget;
 
 	virtual void BeginPlay() override;
 

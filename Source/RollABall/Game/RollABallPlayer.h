@@ -10,6 +10,7 @@
 class USpringArmComponent;
 class UCameraComponent;
 
+
 UCLASS()
 class ROLLABALL_API ARollABallPlayer : public APawn
 {

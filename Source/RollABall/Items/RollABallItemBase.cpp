@@ -2,8 +2,8 @@
 
 
 #include "RollABallItemBase.h"
-#include "RollABall\Game\RollABallPlayer.h"
-
+#include "RollABall/Game/RollABallPlayer.h"
+#include "RollABall/Game/RollABallGameModeBase.h"
 
 // Sets default values
 ARollABallItemBase::ARollABallItemBase()
@@ -34,8 +34,14 @@ void ARollABallItemBase::OverlapBegin(UPrimitiveComponent* OverlappedComponent, 
 	}
 }
 
+
 void ARollABallItemBase::Collected_Implementation()
 {
-	// TODO - Do Game Mode Stuff
+	ARollABallGameModeBase* GameMode = Cast<ARollABallGameModeBase>(GetWorld()->GetAuthGameMode());
+
+	if (GameMode)
+	{
+		GameMode->ItemCollected();
+	}
 }
 
