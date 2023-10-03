@@ -94,8 +94,6 @@ void ARollABallPlayer::Jump()
 void ARollABallPlayer::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
 
-
-
 	// Get direction we hit the surface on Z-Axis (up/down)
 	const float HitDirection = Hit.Normal.Z;
 	// If more than 0 then we have hit something below us. 1 is flat, anything between is a slope
