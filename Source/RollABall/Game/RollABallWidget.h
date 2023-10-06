@@ -21,4 +21,6 @@ public:
 	UFUNCTION(BlueprintImplementableEvent)
 	void SetItemText(int32 ItemsCollected, int32 ItemsInLevel);
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void ResetCount(int32 ItemsCollected, int32 ItemsInLevel);
 };
