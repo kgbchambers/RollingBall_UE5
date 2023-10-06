@@ -31,6 +31,10 @@ protected:
 
 	void UpdateItemText();
 
+	void ResetCount();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void ResetBPEvent();
 
 public:
 	void ItemCollected();

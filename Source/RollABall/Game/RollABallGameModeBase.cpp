@@ -4,6 +4,7 @@
 #include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
 #include "RollABall/Items/RollABallItemBase.h"
+#include "Macros.h"
 
 void ARollABallGameModeBase::BeginPlay()
 {
@@ -21,9 +22,6 @@ void ARollABallGameModeBase::BeginPlay()
 			UpdateItemText();
 		}
 	}
-
-
-
 }
 
 void ARollABallGameModeBase::UpdateItemText()
@@ -31,9 +29,23 @@ void ARollABallGameModeBase::UpdateItemText()
 	GameWidget->SetItemText(ItemsCollected, ItemsInLevel);
 }
 
+void ARollABallGameModeBase::ResetCount()
+{
+	ItemsCollected = 0;
+	UpdateItemText();
+	ResetBPEvent();
+}
+
 
 void ARollABallGameModeBase::ItemCollected()
 {
 	ItemsCollected++;
 	UpdateItemText();
+
+	if (ItemsCollected >= ItemsInLevel)
+	{
+		ResetCount();
+		D("Resetting Items");
+	}
 }
+
